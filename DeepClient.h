@@ -4,6 +4,7 @@
 #include <boost/python.hpp>
 #include <map>
 #include <vector>
+#include <php.h>
 
 class DeepClient {
 public:

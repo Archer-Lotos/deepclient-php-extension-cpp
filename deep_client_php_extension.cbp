@@ -5,7 +5,7 @@
 		<Option title="deep_client_php_extension"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\lib\;CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.74.0\;CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.74.0\;CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.74.0\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/deep-foundation/deepclient-php-extension-cpp"/>
@@ -24,6 +24,8 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DBOOST_ALL_NO_LIB"/>
+					<Add option="-DBOOST_PYTHON_DYN_LINK"/>
 					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/php_headers"/>
 					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/ext_php_headers"/>
 					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/zend_headers"/>
@@ -43,6 +45,8 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DBOOST_ALL_NO_LIB"/>
+					<Add option="-DBOOST_PYTHON_DYN_LINK"/>
 					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/php_headers"/>
 					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/ext_php_headers"/>
 					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/zend_headers"/>
@@ -84,6 +88,33 @@
 		</Unit>
 		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/BoostDetectToolset-1.74.0.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.74.0\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.74.0\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.74.0/boost_headers-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.74.0\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.74.0/boost_headers-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.74.0\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.74.0/boost_python-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.74.0\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.74.0/boost_python-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.74.0\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.74.0/libboost_python-variant-shared-py3.10.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.74.0\"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.74.0/libboost_python-variant-static-py3.10.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.74.0\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

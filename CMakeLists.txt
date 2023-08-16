@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.12)
 project(deep_client_php_extension)
 
 set( CMAKE_CXX_STANDARD 14 )
@@ -15,6 +15,19 @@ include_directories(${EXT_PHP_INCLUDE_DIR})
 include_directories(${ZEND_INCLUDE_DIR})
 include_directories(${PYTHON_INCLUDE_DIRS})
 
-add_library(deep_client_php_extension MODULE DeepClient.cpp)
+# Find Boost package
+find_package(Boost REQUIRED COMPONENTS python)
 
-target_link_libraries(deep_client_php_extension ${PYTHON_LIBRARIES})
+# Add the Boost include directory
+include_directories(${Boost_INCLUDE_DIRS})
+
+# Define your source files
+set(SOURCES
+        DeepClient.cpp
+)
+
+# Create the Python module
+add_library(deep_client_php_extension MODULE ${SOURCES})
+
+# Link against Boost libraries
+target_link_libraries(deep_client_php_extension ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
