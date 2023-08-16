@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="deep_client_php_extension"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/deep-foundation/deepclient-php-extension-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="deep_client_php_extension">
+				<Option output="/home/deep-foundation/deepclient-php-extension-cpp/libdeep_client_php_extension.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/deep-foundation/deepclient-php-extension-cpp"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/php_headers"/>
+					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/ext_php_headers"/>
+					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/zend_headers"/>
+					<Add directory="/usr/include/python3.10"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 deep_client_php_extension"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="deep_client_php_extension/fast">
+				<Option output="/home/deep-foundation/deepclient-php-extension-cpp/libdeep_client_php_extension.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/deep-foundation/deepclient-php-extension-cpp"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/php_headers"/>
+					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/ext_php_headers"/>
+					<Add directory="/home/deep-foundation/deepclient-php-extension-cpp/zend_headers"/>
+					<Add directory="/usr/include/python3.10"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 deep_client_php_extension/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/deep-foundation/deepclient-php-extension-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/deep-foundation/deepclient-php-extension-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/deep-foundation/deepclient-php-extension-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/DeepClient.cpp">
+			<Option target="deep_client_php_extension"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/DeepClient.h">
+			<Option target="deep_client_php_extension"/>
+		</Unit>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
