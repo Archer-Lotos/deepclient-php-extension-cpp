@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/BoostPythonBindings.cpp">
+			<Option target="deep_client_php_extension"/>
+		</Unit>
 		<Unit filename="/home/deep-foundation/deepclient-php-extension-cpp/DeepClient.cpp">
 			<Option target="deep_client_php_extension"/>
 		</Unit>

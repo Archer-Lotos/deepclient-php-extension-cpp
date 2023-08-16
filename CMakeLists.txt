@@ -24,6 +24,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 # Define your source files
 set(SOURCES
         DeepClient.cpp
+        BoostPythonBindings.cpp
 )
 
 # Create the Python module

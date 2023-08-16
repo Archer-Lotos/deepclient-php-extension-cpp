@@ -35,8 +35,7 @@ public:
 private:
     std::map<int, std::string> _ids;
     std::map<std::string, std::string> _serialize;
-
-    // Здесь могут быть дополнительные поля и методы
+    std::map<std::string, boost::python::api::object> _functions;
 };
 
 #endif //DEEPCLIENT_PHP_EXTENSION_CPP_DEEPCLIENT_H
