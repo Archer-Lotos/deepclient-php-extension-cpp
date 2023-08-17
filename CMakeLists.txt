@@ -21,6 +21,9 @@ find_package(Boost REQUIRED COMPONENTS python)
 # Add the Boost include directory
 include_directories(${Boost_INCLUDE_DIRS})
 
+find_package(PHP REQUIRED)
+target_include_directories(deep_client_php_extension ${PHP_INCLUDE_DIRS})
+
 # Define your source files
 set(SOURCES
         DeepClient.cpp
