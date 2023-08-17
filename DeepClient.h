@@ -2,11 +2,10 @@
 #define DEEPCLIENT_PHP_EXTENSION_CPP_DEEPCLIENT_H
 
 #include <boost/python.hpp>
+#include "php_headers/php.h"
 #include <map>
 #include <vector>
-#include "php_headers/php.h"
 #include <cstdlib>
-#include <Python.h>
 
 class DeepClient {
 public:

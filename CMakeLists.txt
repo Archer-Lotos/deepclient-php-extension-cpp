@@ -28,8 +28,9 @@ set(SOURCES
         deep_client_cpp_extension.cpp
 )
 
-# Create the Python module
+# Create the Python/PHP module
 add_library(deep_client_php_extension MODULE ${SOURCES})
 
 # Link against Boost libraries
 target_link_libraries(deep_client_php_extension ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+set_target_properties(deep_client_php_extension PROPERTIES PREFIX "")
