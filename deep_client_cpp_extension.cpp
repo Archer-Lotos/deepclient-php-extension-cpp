@@ -33,7 +33,13 @@ PHP_FUNCTION(make_deep_client) {
                 PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
 
                 if (pValue != NULL) {
-                    // TODO: Convert the Python result to a PHP object
+                    zend_string *tDeepClient = zend_string_init("DeepClient", sizeof("DeepClient") - 1, 0);
+                    zend_class_entry *deepClientClass = zend_fetch_class(tDeepClient, ZEND_FETCH_CLASS_AUTO);
+
+                    zval phpObject;
+                    object_init_ex(&phpObject, deepClientClass);
+                    //zend_call_method_with_1_params(&phpObject, deepClientClass, NULL, "setMessage", NULL, pValue);
+                    RETURN_ZVAL(&phpObject, 0, 1);
 
                     Py_DECREF(pValue);
                 } else {
@@ -80,15 +86,15 @@ PHP_MINFO_FUNCTION(deep_client_php_extension) {
 }
 
 PHP_MSHUTDOWN_FUNCTION(deep_client_php_extension) {
-    if (g_DeepClientInstance) {
+    /*if (g_DeepClientInstance) {
         delete g_DeepClientInstance;
         g_DeepClientInstance = nullptr;
-    }
+    }*/
     return SUCCESS;
 }
 
 PHP_MINIT_FUNCTION(deep_client_php_extension) {
-    g_DeepClientInstance = new DeepClient();
+    //g_DeepClientInstance = new DeepClient();
 }
 
 zend_function_entry deep_client_php_extension_functions[] = {
