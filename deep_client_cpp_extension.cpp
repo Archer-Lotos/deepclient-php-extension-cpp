@@ -7,10 +7,9 @@ extern "C" {
 using namespace boost::python;
 
 PHP_FUNCTION(php_make_deep_client) {
-    const char *token;
-    size_t token_len;
-    const char *url;
-    size_t url_len;
+    char *token;
+    char *url;
+    size_t token_len, url_len;
 
     ZEND_PARSE_PARAMETERS_START(2, 2)
             Z_PARAM_STRING(token, token_len)
@@ -55,6 +54,11 @@ PHP_FUNCTION(php_make_deep_client) {
     Py_Finalize();
 }
 
+ZEND_BEGIN_ARG_INFO(arginfo_make_deep_client, 0)
+                ZEND_ARG_INFO(0, token)
+                ZEND_ARG_INFO(0, url)
+ZEND_END_ARG_INFO()
+
 PHP_MINFO_FUNCTION(deep_client_cpp_extension) {
     php_info_print_table_start();
     php_info_print_table_header(2, "deep_client_cpp_extension support", "enabled");
@@ -62,23 +66,21 @@ PHP_MINFO_FUNCTION(deep_client_cpp_extension) {
 }
 
 zend_function_entry deep_client_cpp_extension_functions[] = {
-        PHP_FE(php_make_deep_client, NULL)
+        PHP_FE(php_make_deep_client, arginfo_make_deep_client)
         PHP_FE_END
 };
 
 zend_module_entry deep_client_cpp_extension_module_entry = {
         STANDARD_MODULE_HEADER,
-        "deep_client_cpp_extension",
+        "deep_client_php_extension",
         deep_client_cpp_extension_functions,
         NULL,
         NULL,
         NULL,
         NULL,
         PHP_MINFO(deep_client_cpp_extension),
-        NULL,
-        NULL,
-        NULL,
-        STANDARD_MODULE_PROPERTIES_EX
+        "1.0",
+        STANDARD_MODULE_PROPERTIES
 };
 
 #ifdef COMPILE_DL_DEEP_CLIENT_CPP_EXTENSION
