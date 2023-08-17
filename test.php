@@ -1,13 +1,12 @@
 <?php
 
 function php_deepclient_select() {
-    return _php_deepclient_select();
-}
-
-function php_deepclient_insert() {
-    return _php_deepclient_insert();
+    return php_make_deep_client(
+    '',
+    ''
+    );
 }
 
 echo php_deepclient_select() . "\n";
-echo php_deepclient_insert() . "\n";
+
 ?>
