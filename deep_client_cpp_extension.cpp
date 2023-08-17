@@ -1,5 +1,4 @@
-#include <php.h>
-#include <boost/python.hpp>
+#include "DeepClient.h"
 
 extern "C" {
 #include "ext_php_headers/standard/info.h"
@@ -20,17 +19,36 @@ PHP_FUNCTION(php_make_deep_client) {
 
     Py_Initialize();
     try {
-        python_exec("from deep_client_interface import DeepClient");
-        python_eval("def make_deep_client(token, url):\n"
-                    "    if not token:\n"
-                    "        raise ValueError('No token provided')\n"
-                    "    if not url:\n"
-                    "        raise ValueError('No url provided')\n"
-                    "    return DeepClient()");
-        python_eval("result = make_deep_client('" + std::string(token) + "', '" + std::string(url) + "')");
+        // Initialize Python
+        PyRun_SimpleString("import sys\n"
+                           "sys.path.append('.');"); // Add current directory to sys.path if needed
 
-        // TODO: Convert the Python result to a PHP object
+        // Import the module and get the function
+        PyObject *pModule = PyImport_ImportModule("deep_client_interface");
+        if (pModule) {
+            PyObject *pFunc = PyObject_GetAttrString(pModule, "make_deep_client");
+            if (pFunc && PyCallable_Check(pFunc)) {
+                PyObject *pArgs = PyTuple_Pack(2, PyUnicode_DecodeFSDefault(token), PyUnicode_DecodeFSDefault(url));
+                PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
 
+                if (pValue != NULL) {
+                    // TODO: Convert the Python result to a PHP object
+
+                    Py_DECREF(pValue);
+                } else {
+                    PyErr_Print();
+                }
+
+                Py_DECREF(pArgs);
+                Py_DECREF(pFunc);
+            } else {
+                if (PyErr_Occurred()) PyErr_Print();
+            }
+
+            Py_DECREF(pModule);
+        } else {
+            PyErr_Print();
+        }
     } catch (error_already_set const &) {
         PyErr_Print();
     }
@@ -50,7 +68,7 @@ zend_function_entry deep_client_cpp_extension_functions[] = {
 
 zend_module_entry deep_client_cpp_extension_module_entry = {
         STANDARD_MODULE_HEADER,
-        "deep_client_php_extension",
+        "deep_client_cpp_extension",
         deep_client_cpp_extension_functions,
         NULL,
         NULL,
