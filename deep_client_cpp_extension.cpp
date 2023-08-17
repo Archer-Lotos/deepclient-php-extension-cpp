@@ -33,13 +33,14 @@ PHP_FUNCTION(make_deep_client) {
                 PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
 
                 if (pValue != NULL) {
-                    zend_string *tDeepClient = zend_string_init("DeepClient", sizeof("DeepClient") - 1, 0);
+                    /*zend_string *tDeepClient = zend_string_init("DeepClient", sizeof("DeepClient") - 1, 0);
                     zend_class_entry *deepClientClass = zend_fetch_class(tDeepClient, ZEND_FETCH_CLASS_AUTO);
 
                     zval phpObject;
                     object_init_ex(&phpObject, deepClientClass);
                     //zend_call_method_with_1_params(&phpObject, deepClientClass, NULL, "setMessage", NULL, pValue);
-                    RETURN_ZVAL(&phpObject, 0, 1);
+                    RETURN_ZVAL(&phpObject, 0, 1);*/
+                    result = Php::Value(PyUnicode_AsUTF8(pyResult));
 
                     Py_DECREF(pValue);
                 } else {
