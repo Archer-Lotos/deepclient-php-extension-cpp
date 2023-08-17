@@ -23,8 +23,9 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 # Define your source files
 set(SOURCES
-        #DeepClient.cpp
-        #BoostPythonBindings.cpp
+        DeepClient.h
+        DeepClient.cpp
+        # BoostPythonBindings.cpp
         deep_client_cpp_extension.cpp
 )
 

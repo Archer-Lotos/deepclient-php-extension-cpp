@@ -6,6 +6,8 @@ extern "C" {
 
 using namespace boost::python;
 
+static DeepClient* g_DeepClientInstance = nullptr;
+
 PHP_FUNCTION(make_deep_client) {
     char *token;
     char *url;
@@ -54,6 +56,18 @@ PHP_FUNCTION(make_deep_client) {
     Py_Finalize();
 }
 
+PHP_FUNCTION(deep_client_select) {
+    DeepClient* deepClient = g_DeepClientInstance;
+    boost::python::object result = deepClient->select(boost::python::object(1));
+    RETURN_STRING(boost::python::extract<const char*>(result)());
+}
+
+PHP_FUNCTION(deep_client_insert) {
+    DeepClient* deepClient = g_DeepClientInstance;
+    boost::python::object result = deepClient->insert(boost::python::object(1));
+    RETURN_STRING(boost::python::extract<const char*>(result)());
+}
+
 ZEND_BEGIN_ARG_INFO(arginfo_make_deep_client, 0)
                 ZEND_ARG_INFO(0, token)
                 ZEND_ARG_INFO(0, url)
@@ -65,8 +79,22 @@ PHP_MINFO_FUNCTION(deep_client_php_extension) {
     php_info_print_table_end();
 }
 
+PHP_MSHUTDOWN_FUNCTION(deep_client_php_extension) {
+    if (g_DeepClientInstance) {
+        delete g_DeepClientInstance;
+        g_DeepClientInstance = nullptr;
+    }
+    return SUCCESS;
+}
+
+PHP_MINIT_FUNCTION(deep_client_php_extension) {
+    g_DeepClientInstance = new DeepClient();
+}
+
 zend_function_entry deep_client_php_extension_functions[] = {
         PHP_FE(make_deep_client, arginfo_make_deep_client)
+        PHP_FE(deep_client_select, NULL)
+        PHP_FE(deep_client_insert, NULL)
         PHP_FE_END
 };
 
@@ -74,12 +102,12 @@ zend_module_entry deep_client_php_extension_module_entry = {
         STANDARD_MODULE_HEADER,
         "deep_client_php_extension",
         deep_client_php_extension_functions,
-        NULL,
-        NULL,
+        PHP_MINIT(deep_client_php_extension),
+        PHP_MSHUTDOWN(deep_client_php_extension),
         NULL,
         NULL,
         PHP_MINFO(deep_client_php_extension),
-        "1.0",
+        "0.0.1",
         STANDARD_MODULE_PROPERTIES
 };
 

@@ -1,5 +1,5 @@
-#ifndef DEEPCLIENT_PHP_EXTENSION_CPP_DEEPCLIENT_H
-#define DEEPCLIENT_PHP_EXTENSION_CPP_DEEPCLIENT_H
+#ifndef DEEP_CLIENT_H
+#define DEEP_CLIENT_H
 
 #include <boost/python.hpp>
 #include "php_headers/php.h"
@@ -39,4 +39,4 @@ private:
     std::map<std::string, boost::python::api::object> _functions;
 };
 
-#endif //DEEPCLIENT_PHP_EXTENSION_CPP_DEEPCLIENT_H
+#endif //DEEP_CLIENT_H
